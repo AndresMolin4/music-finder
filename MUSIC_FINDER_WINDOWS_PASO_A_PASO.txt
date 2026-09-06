@@ -1,0 +1,31 @@
+MUSIC FINDER - INSTALACIÓN EN WINDOWS
+
+PASO 1 — Instalar Node.js
+Descargar e instalar Node.js LTS:
+https://nodejs.org/
+
+
+
+PASO 2 — Instalar las dependencias
+En la terminal dentro de la carpeta music-recomendation, dentro de la carpeta del proyecto, ejecutar:
+
+npm install
+
+
+PASO 3 — Ejecutar el programa
+En la terminal de VS Code ejecutar:
+
+node server.js
+
+PASO 6 — Abrir el programa
+Abrir el navegador y entrar a:
+
+http://localhost:3000
+
+¡Listo!
+
+instalar tambien 
+
+npm install mongoose
+
+npm install express

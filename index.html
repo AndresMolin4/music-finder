@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Buscador de Música</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="contenedor">
+
+        <h1>BUSCADOR DE MUSICA</h1>
+
+        <p class="subtitulo">
+            Encuentra musica segun tus preferencias
+        </p>
+
+        <form id="formularioMusica">
+
+            <label for="nombre">Nombre</label>
+            <input
+                type="text"
+                id="nombre"
+                placeholder="Ingresa tu nombre"
+                required
+            >
+
+            <label for="apellido">Apellido</label>
+            <input
+                type="text"
+                id="apellido"
+                placeholder="Ingresa tu apellido"
+                required
+            >
+
+            <label for="artista">Artista favorito</label>
+            <input
+                type="text"
+                id="artista"
+                placeholder="Ejemplo: Coldplay"
+                required
+            >
+
+            <label for="genero">Genero favorito</label>
+            <select id="genero" required>
+                <option value="">Selecciona un genero</option>
+                <option value="Pop">Pop</option>
+                <option value="Rock">Rock</option>
+                <option value="Hip-Hop">Hip-Hop</option>
+                <option value="Electronica">Electronica</option>
+                <option value="R&B">R&B</option>
+                <option value="Latina">Latina</option>
+                <option value="Country">Country</option>
+                <option value="Jazz">Jazz</option>
+                <option value="Clasica">Clasica</option>
+            </select>
+
+            <label for="estadoAnimo">¿Como te sientes?</label>
+            <select id="estadoAnimo" required>
+                <option value="">Selecciona tu estado de animo</option>
+                <option value="Feliz">Feliz</option>
+                <option value="Relajado">Relajado</option>
+                <option value="Energetico">Energertico</option>
+                <option value="Triste">Triste</option>
+                <option value="Romantico">Romantico</option>
+                <option value="Concentrado">Concentrado</option>
+            </select>
+
+            <button type="submit">
+                Buscar musica
+            </button>
+
+        </form>
+            <div id="resultados" class="resultados"></div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

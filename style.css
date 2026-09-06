@@ -1,0 +1,436 @@
+/* ==========================================
+   BASE / TIPOGRAFÍA APPLE
+   ========================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display",
+        "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+
+    color: white;
+    padding: 60px 20px;
+
+    /* fondo con profundidad para que el efecto "liquid glass" tenga algo detrás */
+    background:
+        radial-gradient(1000px 600px at 15% -10%, rgba(29, 185, 84, 0.16), transparent 60%),
+        radial-gradient(900px 500px at 110% 10%, rgba(29, 185, 84, 0.08), transparent 55%),
+        #0b0b0d;
+    background-attachment: fixed;
+}
+
+::selection {
+    background: rgba(29, 185, 84, 0.35);
+}
+
+:focus-visible {
+    outline: 2px solid #1db954;
+    outline-offset: 3px;
+    border-radius: 6px;
+}
+
+
+/* ==========================================
+   CONTENEDOR PRINCIPAL (LIQUID GLASS)
+   ========================================== */
+
+.contenedor {
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 44px 40px;
+
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+    -webkit-backdrop-filter: blur(28px) saturate(180%);
+    backdrop-filter: blur(28px) saturate(180%);
+
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 28px;
+
+    box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.12) inset,
+        0 20px 60px rgba(0, 0, 0, 0.45);
+}
+
+h1 {
+    margin: 0 0 6px;
+    text-align: center;
+
+    font-size: 34px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+
+    background: linear-gradient(135deg, #ffffff 30%, #b9f3cd 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.subtitulo {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    margin-bottom: 34px;
+}
+
+
+/* ==========================================
+   FORMULARIO
+   ========================================== */
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 460px;
+    margin: 0 auto;
+}
+
+label {
+    margin-top: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+input,
+select {
+    width: 100%;
+    padding: 13px 16px;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+
+    background: rgba(255, 255, 255, 0.05);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+
+    color: white;
+    font-size: 16px;
+    font-family: inherit;
+
+    transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+input:hover,
+select:hover {
+    background: rgba(255, 255, 255, 0.07);
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: rgba(29, 185, 84, 0.6);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 4px rgba(29, 185, 84, 0.15);
+}
+
+button {
+    margin-top: 22px;
+    padding: 14px;
+
+    border: none;
+    border-radius: 14px;
+
+    background: linear-gradient(135deg, #1db954, #17a34a);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(29, 185, 84, 0.28);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s ease;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #1ed760, #1db954);
+    transform: translateY(-1px);
+    box-shadow: 0 10px 26px rgba(29, 185, 84, 0.38);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+
+/* ==========================================
+   RESULTADOS
+   ========================================== */
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.resultados {
+    margin-top: 40px;
+    animation: aparecer 0.5s ease both;
+}
+
+.saludo {
+    text-align: center;
+    margin-bottom: 30px;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 15px;
+}
+
+.titulo-seccion {
+    margin-top: 35px;
+    margin-bottom: 18px;
+
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+
+    padding-left: 12px;
+    border-left: 3px solid #1db954;
+}
+
+/* Layout lado a lado: artistas a la izquierda, canciones a la derecha.
+   Para que esto funcione tal cual, envuelve en tu HTML el bloque de
+   artistas y el bloque de canciones (cada uno con su título) dentro de
+   un contenedor con la clase "fila-resultados", así:
+
+   <div class="fila-resultados">
+     <div>
+       <h2 class="titulo-seccion">Artistas</h2>
+       <div class="contenedor-tarjetas">...</div>
+     </div>
+     <div>
+       <h2 class="titulo-seccion">Canciones</h2>
+       <div class="contenedor-canciones">...</div>
+     </div>
+   </div>
+*/
+.fila-resultados {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+
+/* ==========================================
+   TARJETAS DE ARTISTAS
+   ========================================== */
+
+.contenedor-tarjetas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+}
+
+.tarjeta-artista {
+    background: rgba(255, 255, 255, 0.05);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 14px;
+    text-align: center;
+
+    animation: aparecer 0.45s ease both;
+    transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.tarjeta-artista:nth-child(1) { animation-delay: 0.05s; }
+.tarjeta-artista:nth-child(2) { animation-delay: 0.1s; }
+.tarjeta-artista:nth-child(3) { animation-delay: 0.15s; }
+.tarjeta-artista:nth-child(4) { animation-delay: 0.2s; }
+.tarjeta-artista:nth-child(5) { animation-delay: 0.25s; }
+.tarjeta-artista:nth-child(6) { animation-delay: 0.3s; }
+
+.tarjeta-artista:hover {
+    transform: translateY(-3px);
+    border-color: rgba(29, 185, 84, 0.35);
+    background: rgba(255, 255, 255, 0.07);
+}
+
+.tarjeta-artista img {
+    width: 100%;
+    max-width: 180px;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 14px;
+}
+
+.tarjeta-artista h2 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+
+/* ==========================================
+   TARJETAS DE CANCIONES
+   ========================================== */
+
+.contenedor-canciones {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.tarjeta-cancion {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    background: rgba(255, 255, 255, 0.05);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 14px;
+
+    animation: aparecer 0.45s ease both;
+    transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.tarjeta-cancion:nth-child(1) { animation-delay: 0.05s; }
+.tarjeta-cancion:nth-child(2) { animation-delay: 0.1s; }
+.tarjeta-cancion:nth-child(3) { animation-delay: 0.15s; }
+.tarjeta-cancion:nth-child(4) { animation-delay: 0.2s; }
+.tarjeta-cancion:nth-child(5) { animation-delay: 0.25s; }
+.tarjeta-cancion:nth-child(6) { animation-delay: 0.3s; }
+
+.tarjeta-cancion:hover {
+    transform: translateY(-2px);
+    border-color: rgba(29, 185, 84, 0.35);
+    background: rgba(255, 255, 255, 0.07);
+}
+
+.tarjeta-cancion img {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+
+.informacion-cancion {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+}
+
+.informacion-cancion h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.informacion-cancion p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.75);
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.informacion-cancion span {
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+
+/* ==========================================
+   BOTÓN DE SPOTIFY
+   ========================================== */
+
+.boton-spotify {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 20px;
+
+    background: rgba(29, 185, 84, 0.15);
+    border: 1px solid rgba(29, 185, 84, 0.4);
+    color: #1ed760;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 13px;
+    width: fit-content;
+
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.boton-spotify:hover {
+    background: #1db954;
+    color: white;
+}
+
+
+/* ==========================================
+   ACCESIBILIDAD: MOVIMIENTO REDUCIDO
+   ========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .resultados,
+    .tarjeta-artista,
+    .tarjeta-cancion {
+        animation: none;
+    }
+
+    button,
+    .tarjeta-artista,
+    .tarjeta-cancion {
+        transition: none;
+    }
+}
+
+
+/* ==========================================
+   CELULAR
+   ========================================== */
+
+@media (max-width: 700px) {
+    .fila-resultados {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+}
+
+@media (max-width: 500px) {
+    .contenedor {
+        padding: 30px 22px;
+        border-radius: 22px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    .tarjeta-cancion {
+        align-items: flex-start;
+    }
+
+    .tarjeta-cancion img {
+        width: 70px;
+        height: 70px;
+    }
+}
