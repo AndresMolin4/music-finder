@@ -15,7 +15,7 @@ conectarBD();
 
 
 const aplicacion = express();
-const puerto = 3000;
+const puerto = process.env.PORT || 3000;
 
 
 aplicacion.use(express.json());
