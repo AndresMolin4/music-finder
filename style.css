@@ -102,6 +102,11 @@ label {
     color: rgba(255, 255, 255, 0.85);
 }
 
+select option {
+    background-color: #17191c;
+    color: white;
+}   
+
 input,
 select {
     width: 100%;
